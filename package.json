@@ -1,0 +1,25 @@
+{
+  "name": "campos-br",
+  "version": "0.0.1",
+  "description": "Componentes Vue 3 para formulários brasileiros — CPF, CNPJ, CEP, telefone e moeda. Zero dependências.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "license": "MIT"
+}
