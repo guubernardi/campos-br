@@ -10,7 +10,9 @@
       "lib": ["ESNext", "DOM", "DOM.Iterable"],
       "declaration": true,
       "emitDeclarationOnly": true,
+      "rootDir": "src",
       "outDir": "dist"
     },
-    "include": ["src"]
+    "include": ["src"],
+    "exclude": ["src/**/*.test.ts"]
 }
