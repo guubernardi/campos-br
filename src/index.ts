@@ -15,3 +15,11 @@ export { mascararCpf } from './mascaras/cpf'
 export { mascararCnpj } from './mascaras/cnpj'
 export { mascararCep } from './mascaras/cep'
 export { mascararTelefone } from './mascaras/telefone'
+
+// Composables
+export { useDocumento } from './composables/useDocumento'
+export { useTelefone } from './composables/useTelefone'
+export { useCep } from './composables/useCep'
+
+// Busca de CEP
+export { buscarCepViaCep, type Endereco } from './utils/buscarCep'
