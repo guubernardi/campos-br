@@ -23,3 +23,8 @@ export { useCep } from './composables/useCep'
 
 // Busca de CEP
 export { buscarCepViaCep, type Endereco } from './utils/buscarCep'
+
+// Componentes
+export { default as CampoDocumento } from './componentes/CampoDocumento.vue'
+export { default as CampoTelefone } from './componentes/CampoTelefone.vue'
+export { default as CampoCep } from './componentes/CampoCep.vue'

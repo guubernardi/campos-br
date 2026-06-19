@@ -1,0 +1,70 @@
+/**
+ * Estilo base dos componentes campos-br.
+ *
+ * Tudo é parametrizado por CSS custom properties com prefixo --campos-br-,
+ * com valores padrão neutros e discretos. O consumidor pode sobrescrever
+ * qualquer variável no seu próprio :root (ou em um escopo mais específico)
+ * sem precisar mexer nas regras.
+ */
+:root {
+  --campos-br-cor-texto: #1f2933;
+  --campos-br-cor-rotulo: #52606d;
+  --campos-br-cor-borda: #cbd2d9;
+  --campos-br-cor-foco: #3b82f6;
+  --campos-br-cor-erro: #d64545;
+  --campos-br-cor-fundo: #ffffff;
+  --campos-br-cor-fundo-desabilitado: #f5f7fa;
+  --campos-br-raio: 6px;
+  --campos-br-espacamento: 0.25rem;
+  --campos-br-preenchimento: 0.5rem 0.75rem;
+  --campos-br-fonte: inherit;
+  --campos-br-tamanho-fonte: 1rem;
+}
+
+.campos-br-campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--campos-br-espacamento);
+  font-family: var(--campos-br-fonte);
+}
+
+.campos-br-campo__rotulo {
+  font-size: 0.875rem;
+  color: var(--campos-br-cor-rotulo);
+}
+
+.campos-br-campo__input {
+  font-family: inherit;
+  font-size: var(--campos-br-tamanho-fonte);
+  color: var(--campos-br-cor-texto);
+  background-color: var(--campos-br-cor-fundo);
+  border: 1px solid var(--campos-br-cor-borda);
+  border-radius: var(--campos-br-raio);
+  padding: var(--campos-br-preenchimento);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.campos-br-campo__input:focus {
+  border-color: var(--campos-br-cor-foco);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--campos-br-cor-foco) 20%, transparent);
+}
+
+.campos-br-campo__input:disabled {
+  background-color: var(--campos-br-cor-fundo-desabilitado);
+  cursor: not-allowed;
+}
+
+.campos-br-campo--erro .campos-br-campo__input {
+  border-color: var(--campos-br-cor-erro);
+}
+
+.campos-br-campo__erro {
+  font-size: 0.8125rem;
+  color: var(--campos-br-cor-erro);
+}
+
+.campos-br-campo__carregando {
+  font-size: 0.8125rem;
+  color: var(--campos-br-cor-rotulo);
+}
