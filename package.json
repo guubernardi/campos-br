@@ -1,8 +1,30 @@
 {
   "name": "campos-br",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Componentes Vue 3 para formulários brasileiros — CPF, CNPJ, CEP, telefone e moeda. Zero dependências.",
   "type": "module",
+  "keywords": [
+    "vue",
+    "vue3",
+    "formulario",
+    "brasil",
+    "cpf",
+    "cnpj",
+    "cep",
+    "telefone",
+    "moeda",
+    "validacao",
+    "mascara"
+  ],
+  "author": "guubernardi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guubernardi/campos-br.git"
+  },
+  "homepage": "https://github.com/guubernardi/campos-br#readme",
+  "bugs": {
+    "url": "https://github.com/guubernardi/campos-br/issues"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -21,7 +43,8 @@
   ],
   "scripts": {
     "build": "vite build && vue-tsc -p tsconfig.json",
-    "test": "vitest"
+    "test": "vitest",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "vue": "^3.3.0"

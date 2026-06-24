@@ -15,11 +15,13 @@ export { mascararCpf } from './mascaras/cpf'
 export { mascararCnpj } from './mascaras/cnpj'
 export { mascararCep } from './mascaras/cep'
 export { mascararTelefone } from './mascaras/telefone'
+export { mascararMoeda, centavosDeTexto } from './mascaras/moeda'
 
 // Composables
 export { useDocumento } from './composables/useDocumento'
 export { useTelefone } from './composables/useTelefone'
 export { useCep } from './composables/useCep'
+export { useMoeda } from './composables/useMoeda'
 
 // Busca de CEP
 export { buscarCepViaCep, type Endereco } from './utils/buscarCep'
@@ -28,3 +30,4 @@ export { buscarCepViaCep, type Endereco } from './utils/buscarCep'
 export { default as CampoDocumento } from './componentes/CampoDocumento.vue'
 export { default as CampoTelefone } from './componentes/CampoTelefone.vue'
 export { default as CampoCep } from './componentes/CampoCep.vue'
+export { default as CampoMoeda } from './componentes/CampoMoeda.vue'
