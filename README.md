@@ -148,6 +148,23 @@ Os componentes usam classes prefixadas com `campos-br-` e variáveis CSS com val
 }
 ```
 
+## Contribuindo
+
+Este projeto é **open source** e contribuições são muito bem-vindas! 🎉
+
+Se você quiser melhorar a lib — corrigir um bug, adicionar um campo novo, melhorar a documentação ou os testes — é só:
+
+1. Fazer um **fork** do repositório
+2. Criar uma branch para a sua mudança (`git checkout -b minha-melhoria`)
+3. Rodar os testes (`npm test`) e garantir que tudo passa
+4. Abrir um **Pull Request** descrevendo o que mudou
+
+Todo PR aceito entra na lib, e **quem contribui é adicionado aos créditos** abaixo. 💜
+
+### Créditos
+
+- [@guubernardi](https://github.com/guubernardi) — criador e mantenedor
+
 ## Licença
 
 [MIT](./LICENSE)
