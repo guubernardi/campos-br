@@ -1,7 +1,7 @@
 {
   "name": "campos-br",
-  "version": "0.1.0",
-  "description": "Componentes Vue 3 para formulários brasileiros — CPF, CNPJ, CEP, telefone e moeda. Zero dependências.",
+  "version": "0.2.0",
+  "description": "Componentes Vue 3 e funções puras para formulários brasileiros: CPF, CNPJ (inclusive alfanumérico), CEP, telefone e moeda. Zero dependências.",
   "type": "module",
   "keywords": [
     "vue",
@@ -14,14 +14,21 @@
     "telefone",
     "moeda",
     "validacao",
-    "mascara"
+    "mascara",
+    "nuxt",
+    "cnpj-alfanumerico",
+    "viacep",
+    "brazil",
+    "input-mask",
+    "validation",
+    "typescript"
   ],
   "author": "guubernardi",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guubernardi/campos-br.git"
   },
-  "homepage": "https://github.com/guubernardi/campos-br#readme",
+  "homepage": "https://guubernardi.github.io/campos-br/",
   "bugs": {
     "url": "https://github.com/guubernardi/campos-br/issues"
   },
@@ -32,6 +39,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./validadores": {
+      "types": "./dist/validadores.d.ts",
+      "import": "./dist/validadores.js"
     },
     "./estilo.css": "./dist/estilo.css"
   },
