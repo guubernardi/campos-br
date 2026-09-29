@@ -34,6 +34,13 @@ describe('useDocumento', () => {
     expect(valido.value).toBe(true)
   })
 
+  it('trata como CNPJ quando há letra, mesmo com poucos caracteres', () => {
+    const modelo = ref('12A')
+    const { tipo, mascarado } = useDocumento(modelo)
+    expect(tipo.value).toBe('cnpj')
+    expect(mascarado.value).toBe('12.A')
+  })
+
   it('aoDigitar limpa e grava o valor no modelo', () => {
     const modelo = ref('')
     const { aoDigitar } = useDocumento(modelo)

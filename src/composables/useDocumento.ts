@@ -18,6 +18,21 @@ export interface UseDocumento {
   aoDigitar: (evento: Event) => void
 }
 
+/** Indica se a string (já em maiúsculas) contém alguma letra. */
+function temLetra(valor: string): boolean {
+  return /[A-Z]/.test(valor)
+}
+
+/**
+ * Limita o CNPJ a 14 caracteres: 12 alfanuméricos e 2 dígitos verificadores
+ * numéricos. Letras nas posições dos verificadores são descartadas.
+ */
+function limparCnpj(alfanumerico: string): string {
+  const corpo = alfanumerico.slice(0, 12)
+  const verificadores = apenasDigitos(alfanumerico.slice(12)).slice(0, 2)
+  return corpo + verificadores
+}
+
 /**
  * Composable de documento (CPF/CNPJ). Recebe o Ref do valor limpo (fonte da
  * verdade exposta pelo v-model) e deriva máscara, tipo e validade.
@@ -31,7 +46,8 @@ export function useDocumento(modelo: Ref<string>): UseDocumento {
     if (limpo.length === 0) {
       return null
     }
-    return limpo.length <= 11 ? 'cpf' : 'cnpj'
+    // CPF nunca tem letras: qualquer letra indica um CNPJ alfanumérico.
+    return limpo.length <= 11 && !temLetra(limpo) ? 'cpf' : 'cnpj'
   })
 
   const mascarado = computed(() =>
@@ -50,9 +66,12 @@ export function useDocumento(modelo: Ref<string>): UseDocumento {
 
   function aoDigitar(evento: Event): void {
     const bruto = (evento.target as HTMLInputElement).value
-    // CPF tem 11 dígitos; acima disso é CNPJ, que pode ser alfanumérico.
-    const ehCnpj = apenasDigitos(bruto).length > 11 || apenasAlfanumerico(bruto).length > 11
-    modelo.value = ehCnpj ? apenasAlfanumerico(bruto) : apenasDigitos(bruto)
+    const alfanumerico = apenasAlfanumerico(bruto)
+    // CPF tem 11 dígitos e nenhuma letra. Acima disso, ou com qualquer letra,
+    // é CNPJ, que pode ser alfanumérico. Assim o CNPJ alfanumérico pode ser
+    // digitado caractere a caractere, e não só colado.
+    const ehCnpj = alfanumerico.length > 11 || temLetra(alfanumerico)
+    modelo.value = ehCnpj ? limparCnpj(alfanumerico) : apenasDigitos(bruto).slice(0, 11)
   }
 
   return { mascarado, tipo, valido, aoDigitar }
